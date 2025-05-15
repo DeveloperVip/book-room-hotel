@@ -14,6 +14,7 @@ const Home = () => {
 
   const message = location.state && location.state.message;
   const currentUser = localStorage.getItem("userId");
+  // console.log("🚀 ~ Home ~ currentUser:", currentUser)
   const [showLoginAlert, setShowLoginAlert] = useState(false);
 
   useEffect(() => {

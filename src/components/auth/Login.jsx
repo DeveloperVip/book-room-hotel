@@ -13,6 +13,7 @@ const Login = () => {
 	const navigate = useNavigate()
 	const auth = useAuth()
 	const location = useLocation()
+	console.log("🚀 ~ Login ~ location:", location.state)
 	const redirectUrl = location.state?.path || "/"
 
 	const handleInputChange = (e) => {

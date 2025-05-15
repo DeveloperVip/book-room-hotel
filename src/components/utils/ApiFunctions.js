@@ -228,3 +228,58 @@ export async function getBookingsByUserId(userId, token) {
 		throw new Error("Failed to fetch bookings")
 	}
 }
+
+export const getAllRoles = () =>
+  api.get(`/api/roles/all-roles`, {
+    headers: getHeader()
+  }).then(res => res.data);
+
+
+export const createRole = (roleData) =>
+  api.post(`/api/roles/create-new-role`, roleData, {
+    headers: getHeader()
+  })
+  .then(res => res.data)
+  .catch(err => {
+    if (err.response?.status === 409) {
+      throw new Error("Role already exists: " + err.response.data);
+    }
+    throw err;
+  });
+
+
+export const deleteRole = (roleId) =>
+  api.delete(`/api/roles/delete/${roleId}`, {
+    headers: getHeader()
+  }).then(() => true);
+
+
+export const removeAllUsersFromRole = (roleId) =>
+  api.post(`/api/roles/remove-all-users-from-role/${roleId}`, null, {
+    headers: getHeader()
+  }).then(res => res.data);
+
+
+export const removeUserFromRole = (userId, roleId) =>
+  api.post(`/api/roles/remove-user-from-role`, null, {
+    headers: getHeader(),
+    params: { userId, roleId }
+  }).then(res => res.data);
+
+
+export const assignUserToRole = (userId, roleId) =>
+  api.post(`/api/roles/assign-user-to-role`, null, {
+    headers: getHeader(),
+    params: { userId, roleId }
+  }).then(res => res.data);
+// Lấy danh sách tất cả user (chỉ admin mới có quyền)
+export const getAllUsers = () =>
+  api.get('/users/all', {
+    headers: getHeader(),
+  }).then(res => res.data);
+
+// Lấy user theo email (user hoặc admin mới có quyền)
+export const getUserByEmail = (email) =>
+  api.get(`/users/${encodeURIComponent(email)}`, {
+    headers: getHeader(),
+  }).then(res => res.data);

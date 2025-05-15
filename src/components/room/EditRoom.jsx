@@ -107,7 +107,7 @@ const EditRoom = () => {
 								Ảnh phòng
 							</label>
 							<input
-								required
+								required={!imagePreview}	
 								type="file"
 								className="form-control"
 								id="photo"
