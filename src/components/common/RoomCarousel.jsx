@@ -22,17 +22,17 @@ const RoomCarousel = () => {
 	}, [])
 
 	if (isLoading) {
-		return <div className="mt-5">Loading rooms....</div>
+		return <div className="mt-5">Đang hiển thị các phòng....</div>
 	}
 	if (errorMessage) {
-		return <div className=" text-danger mb-5 mt-5">Error : {errorMessage}</div>
+		return <div className=" text-danger mb-5 mt-5">Lỗi : {errorMessage}</div>
 	}
 
 	return (
 		<section className="bg-light mb-5 mt-5 shadow">
-			<Link to={"/browse-all-rooms"} className="hote-color text-center">
+			{/* <Link to={"/browse-all-rooms"} className="hote-color text-center">
 				Browse all rooms
-			</Link>
+			</Link> */}
 
 			<Container>
 				<Carousel indicators={false}>
@@ -53,10 +53,10 @@ const RoomCarousel = () => {
 											</Link>
 											<Card.Body>
 												<Card.Title className="hotel-color">{room.roomType}</Card.Title>
-												<Card.Title className="room-price">${room.roomPrice}/night</Card.Title>
+												<Card.Title className="room-price">${room.roomPrice}/tối</Card.Title>
 												<div className="flex-shrink-0">
 													<Link to={`/book-room/${room.id}`} className="btn btn-hotel btn-sm">
-														Book Now
+														Đặt phòng
 													</Link>
 												</div>
 											</Card.Body>

@@ -82,7 +82,7 @@ const ExistingRooms = () => {
 			</div>
 
 			{isLoading ? (
-				<p>Loading existing rooms</p>
+				<p>Loading Phòng có sẵn</p>
 			) : (
 				<>
 					<section className="mt-5 mb-5 container">
@@ -97,7 +97,7 @@ const ExistingRooms = () => {
 
 							<Col md={6} className="d-flex justify-content-end">
 								<Link to={"/add-room"}>
-									<FaPlus /> Add Room
+									<FaPlus /> Thêm phòng
 								</Link>
 							</Col>
 						</Row>
@@ -106,9 +106,9 @@ const ExistingRooms = () => {
 							<thead>
 								<tr className="text-center">
 									<th>ID</th>
-									<th>Room Type</th>
-									<th>Room Price</th>
-									<th>Actions</th>
+									<th>Loại phòng</th>
+									<th>Gía phòng</th>
+									<th>Hành động</th>
 								</tr>
 							</thead>
 

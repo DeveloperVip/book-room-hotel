@@ -80,7 +80,7 @@ const FindBooking = () => {
 	return (
 		<>
 			<div className="container mt-5 d-flex flex-column justify-content-center align-items-center">
-				<h2 className="text-center mb-4">Find My Booking</h2>
+				<h2 className="text-center mb-4">Tìm kiếm phòng của tôi</h2>
 				<form onSubmit={handleFormSubmit} className="col-md-6">
 					<div className="input-group mb-3">
 						<input
@@ -90,49 +90,49 @@ const FindBooking = () => {
 							name="confirmationCode"
 							value={confirmationCode}
 							onChange={handleInputChange}
-							placeholder="Enter the booking confirmation code"
+							placeholder="Nhập mã xác nhận đặt phòng"
 						/>
 
 						<button type="submit" className="btn btn-hotel input-group-text">
-							Find booking
+							Tìm phòng
 						</button>
 					</div>
 				</form>
 
 				{isLoading ? (
-					<div>Finding your booking...</div>
+					<div>Tìm phòng của bạn...</div>
 				) : error ? (
-					<div className="text-danger">Error: {error}</div>
+					<div className="text-danger">Lỗi: {error}</div>
 				) : bookingInfo.bookingConfirmationCode ? (
 					<div className="col-md-6 mt-4 mb-5">
-						<h3>Booking Information</h3>
-						<p className="text-success">Confirmation Code: {bookingInfo.bookingConfirmationCode}</p>
-						<p>Room Number: {bookingInfo.room.id}</p>
-						<p>Room Type: {bookingInfo.room.roomType}</p>
+						<h3>Thông tin phòng đặt</h3>
+						<p className="text-success">Mã xác nhận: {bookingInfo.bookingConfirmationCode}</p>
+						<p>Số phòng: {bookingInfo.room.id}</p>
+						<p>Loại phòng: {bookingInfo.room.roomType}</p>
 						<p>
-							Check-in Date:{" "}
+							Ngày nhận phòng:{" "}
 							{moment(bookingInfo.checkInDate).subtract(1, "month").format("MMM Do, YYYY")}
 						</p>
 						<p>
-							Check-out Date:{" "}
+							Ngày trả phòng:{" "}
 							{moment(bookingInfo.checkInDate).subtract(1, "month").format("MMM Do, YYYY")}
 						</p>
-						<p>Full Name: {bookingInfo.guestName}</p>
+						<p>Họ và tên: {bookingInfo.guestName}</p>
 						<p>Email Address: {bookingInfo.guestEmail}</p>
-						<p>Adults: {bookingInfo.numOfAdults}</p>
-						<p>Children: {bookingInfo.numOfChildren}</p>
-						<p>Total Guest: {bookingInfo.totalNumOfGuests}</p>
+						<p>Số lượng người lớn: {bookingInfo.numOfAdults}</p>
+						<p>Số lượng trẻ nhỏ: {bookingInfo.numOfChildren}</p>
+						<p>Tổng số người: {bookingInfo.totalNumOfGuests}</p>
 
 						{!isDeleted && (
 							<button
 								onClick={() => handleBookingCancellation(bookingInfo.id)}
 								className="btn btn-danger">
-								Cancel Booking
+								Hùy đặt phòng
 							</button>
 						)}
 					</div>
 				) : (
-					<div>find booking...</div>
+					<div>Tìm kiếm phòng phù hợp</div>
 				)}
 
 				{isDeleted && <div className="alert alert-success mt-3 fade show">{successMessage}</div>}

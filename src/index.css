@@ -1,85 +1,97 @@
 body {
   min-height: 100vh;
-  padding-bottom: 50px;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* padding-bottom: 50px; */
 }
 .card {
   opacity: 0.9;
 }
-
+main{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 /* Navigation bar definitions */
- .navbar{
+.navbar {
   padding: 0;
- }
- .navbar .navbar-nav .nav-link{
+}
+.navbar .navbar-nav .nav-link {
   padding: 1em;
- }
- .navbar .navbar-nav .nav-item{
+}
+.navbar .navbar-nav .nav-item {
   position: relative;
- }
-
- .navbar .navbar-nav .nav-item::after{
+}
+.custom-green {
+  color: rgb(22, 153, 118); /* xanh đậm, bạn có thể điều chỉnh */
+}
+.navbar .navbar-nav .nav-item::after {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  content: '';
-  background-color:rgb(169, 77, 123) ;
+  content: "";
+  background-color: rgb(22, 153, 118);
   width: 0;
   margin: 0 auto;
   height: 4px;
-  transition: all .5s;
- }
- .navbar .navbar-nav .nav-item:hover::after{
+  transition: all 0.5s;
+}
+.navbar .navbar-nav .nav-item:hover::after {
   width: 100%;
- }
- .navbar-dark .navbar-nav .nav-link {
+}
+.navbar-dark .navbar-nav .nav-link {
   color: rgb(25, 24, 24);
 }
 
 .navbar-dark .navbar-brand {
   color: rgb(25, 24, 24);
 }
-
- @media screen and (min-width: 992px){
-  .navbar{
-  padding: 0;
- }
- .navbar .navbar-nav .nav-link{
-  padding: 1em 0;
- }
- .navbar .navbar-nav .nav-item{
-  margin: 0 1em;
- }
- }
-
-  /* Hotel custom color */
- .btn-hotel{
-  background-color: rgb(169, 77, 123);
-  color: #fff;
+.active-url{
+  border-color: rgb(22, 153, 118) !important;
+  border-bottom: 3px !important;
+  border-style: solid !important;
+}
+@media screen and (min-width: 992px) {
+  .navbar {
+    padding: 0;
   }
-  .btn-hotel:hover{
+  .navbar .navbar-nav .nav-link {
+    padding: 1em 0;
+  }
+  .navbar .navbar-nav .nav-item {
+    margin: 0 1em;
+  }
+}
+
+/* Hotel custom color */
+.btn-hotel {
+  background-color: rgb(22, 153, 118);
+  color: #fff;
+}
+.btn-hotel:hover {
   background-color: rgb(137, 127, 132);
   color: #fff;
   transition: 0.7s;
   outline-color: transparent;
-  outline-style:solid;
+  outline-style: solid;
+}
 
-  }
-
-  .hotel-color{
-    color: rgb(169, 77, 123);
-  }
-  .room-price{
-    color:darkgoldenrod;
-    font-family: 'Courier New', Courier, monospace;
-    font-size:medium;
-  }
-  .vertical-rule{
-    border-left: '0.5px solid black';
-    height: '100vh'
-  }
-
-
+.hotel-color {
+  color: rgb(22, 153, 118);
+}
+.room-price {
+  color: darkgoldenrod;
+  font-family: "Courier New", Courier, monospace;
+  font-size: medium;
+}
+.vertical-rule {
+  border-left: "0.5px solid black";
+  height: "100vh";
+}
 
 .parallax {
   background-image: url("./assets/images/parrall.jpg");
@@ -87,7 +99,52 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh;
+  height: 30vh;
+}
+.carousel-control-prev{
+  left: -70px !important;
+}
+.carousel-control-next {
+  right: -70px !important;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px !important;
+  height: 50px;
+  top: 50% !important;
+  transform: translateY(-50%);
+  background-color: rgba(0, 128, 0, 0.7); /* xanh đậm trong suốt */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 128, 0, 1);
+  opacity: 1;
+  color: white;
+}
+.bg-footer{
+  background: #2a9b53;
+background: linear-gradient(90deg, rgba(42, 155, 83, 1) 0%, rgba(87, 199, 143, 1) 50%, rgba(42, 155, 110, 1) 100%);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1); /* đổi icon màu trắng */
+  width: 20px;
+  height: 20px;
+}
+img {
+  transition: transform 0.3s ease; /* Hiệu ứng chuyển đổi mượt */
+}
+
+img:hover {
+  transform: scale(1.1); /* Phóng to ảnh lên 1.1 lần khi hover */
 }
 
 .header {
@@ -117,28 +174,36 @@ body {
   animation: fadeInDown 1s ease-in-out;
 }
 
-.animated-texts p, h1, h2 {
+.animated-texts p,
+h1,
+h2 {
   animation: fadeInUp 1s ease-in-out;
 }
 
 @keyframes bounceIn {
-  from, 20%, 40%, 60%, 80%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    transform: translate3d(0,0,0);
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
   }
 
-  40%, 60% {
-    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+  40%,
+  60% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     transform: translate3d(0, -30px, 0);
   }
 
   70% {
-    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     transform: translate3d(0, -15px, 0);
   }
 
   90% {
-    transform: translate3d(0,-4px,0);
+    transform: translate3d(0, -4px, 0);
   }
 }
 
@@ -170,31 +235,34 @@ body {
   }
 }
 /* Header overlay */
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  .overlay-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-     transform: translate(-50%, -50%);
-    color: #fff;
-    justify-content: flex-start;
-  }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("/src/assets/image.png");
+  background-size: cover;
+  background-position: center;
+}
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  justify-content: flex-start;
+}
 
 /* The header banner */
 .header-banner {
-  background-image:  url("./assets/images/services-1.jpg");
-   background-size: cover;
+  background-image: url("./assets/images/services-1.jpg");
+  background-size: cover;
   background-position: center;
-   position: relative;
+  position: relative;
   height: 80vh;
- }
+}
 
 .header-banner {
   position: relative;
@@ -213,12 +281,11 @@ body {
   }
 }
 
- .footer {
-  position: fixed;
+.footer {
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #f5f5f5;
-  height: 60px;
+  /* height: 60px; */
   text-align: center;
 }

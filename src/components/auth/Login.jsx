@@ -37,7 +37,7 @@ const Login = () => {
 	return (
 		<section className="container col-6 mt-5 mb-5">
 			{errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
-			<h2>Login</h2>
+			<h2>Đăng nhập</h2>
 			<form onSubmit={handleSubmit}>
 				<div className="row mb-3">
 					<label htmlFor="email" className="col-sm-2 col-form-label">
@@ -57,7 +57,7 @@ const Login = () => {
 
 				<div className="row mb-3">
 					<label htmlFor="password" className="col-sm-2 col-form-label">
-						Password
+						Mật khẩu
 					</label>
 					<div>
 						<input
@@ -71,12 +71,12 @@ const Login = () => {
 					</div>
 				</div>
 
-				<div className="mb-3">
-					<button type="submit" className="btn btn-hotel" style={{ marginRight: "10px" }}>
-						Login
+				<div className="mb-3 text-center">
+					<button type="submit" className="btn btn-hotel btn-success" style={{ marginRight: "10px" }}>
+						Đăng nhập
 					</button>
 					<span style={{ marginLeft: "10px" }}>
-						Don't' have an account yet?<Link to={"/register"}> Register</Link>
+						Bạn chưa có tài khoản ?<Link to={"/register"}> Đăng ký</Link>
 					</span>
 				</div>
 			</form>

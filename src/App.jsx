@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "/node_modules/bootstrap/dist/js/bootstrap.min.js"
 import ExistingRooms from "./components/room/ExistingRooms"
@@ -19,8 +19,14 @@ import NavBar from "./components/layout/NavBar"
 import Admin from "./components/admin/Admin"
 import Checkout from "./components/bookings/Checkout"
 import BookingSuccess from "./components/bookings/BookingSuccess"
+import FooterCommon from "./components/common/FooterCommon"
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+	useEffect(() => {
+		AOS.init({ duration: 800, once: false });
+	  }, []);
 	return (
 		<AuthProvider>
 			<main>
@@ -54,7 +60,8 @@ function App() {
 						<Route path="/logout" element={<FindBooking />} />
 					</Routes>
 				</Router>
-				<Footer />
+				<div className="footer"><FooterCommon/>
+				<Footer /></div>
 			</main>
 		</AuthProvider>
 	)

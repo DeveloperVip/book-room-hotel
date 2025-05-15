@@ -101,12 +101,12 @@ const currentUser = localStorage.getItem("userId")
 				<div className="row">
 					<div className="col-md-6">
 						<div className="card card-body mt-5">
-							<h4 className="card-title">Reserve Room</h4>
+							<h4 className="card-title">Đặt phòng</h4>
 
 							<Form noValidate validated={validated} onSubmit={handleSubmit}>
 								<Form.Group>
 									<Form.Label htmlFor="guestFullName" className="hotel-color">
-										Fullname
+										Họ và tên
 									</Form.Label>
 									<FormControl
 										required
@@ -114,11 +114,11 @@ const currentUser = localStorage.getItem("userId")
 										id="guestFullName"
 										name="guestFullName"
 										value={booking.guestFullName}
-										placeholder="Enter your fullname"
+										placeholder="Nhập họ tên của bạn"
 										onChange={handleInputChange}
 									/>
 									<Form.Control.Feedback type="invalid">
-										Please enter your fullname.
+										Vui lòng nhập họ tên
 									</Form.Control.Feedback>
 								</Form.Group>
 
@@ -132,21 +132,21 @@ const currentUser = localStorage.getItem("userId")
 										id="guestEmail"
 										name="guestEmail"
 										value={booking.guestEmail}
-										placeholder="Enter your email"
+										placeholder="Nhập email của bạn"
 										onChange={handleInputChange}
 										disabled
 									/>
 									<Form.Control.Feedback type="invalid">
-										Please enter a valid email address.
+										Vui lòng nhập địa chỉ email hợp lệ
 									</Form.Control.Feedback>
 								</Form.Group>
 
 								<fieldset style={{ border: "2px" }}>
-									<legend>Lodging Period</legend>
+									<legend>Thời gian nộp đơn</legend>
 									<div className="row">
 										<div className="col-6">
 											<Form.Label htmlFor="checkInDate" className="hotel-color">
-												Check-in date
+												Ngày nhận phòng
 											</Form.Label>
 											<FormControl
 												required
@@ -159,13 +159,13 @@ const currentUser = localStorage.getItem("userId")
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Please select a check in date.
+												Vui lòng chọn ngày nhận phòng
 											</Form.Control.Feedback>
 										</div>
 
 										<div className="col-6">
 											<Form.Label htmlFor="checkOutDate" className="hotel-color">
-												Check-out date
+												Ngày trả phòng
 											</Form.Label>
 											<FormControl
 												required
@@ -178,7 +178,7 @@ const currentUser = localStorage.getItem("userId")
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Please select a check out date.
+												Vui lòng chọn ngày trả phòng
 											</Form.Control.Feedback>
 										</div>
 										{errorMessage && <p className="error-message text-danger">{errorMessage}</p>}
@@ -186,11 +186,11 @@ const currentUser = localStorage.getItem("userId")
 								</fieldset>
 
 								<fieldset style={{ border: "2px" }}>
-									<legend>Number of Guest</legend>
+									<legend>Số lượng người</legend>
 									<div className="row">
 										<div className="col-6">
 											<Form.Label htmlFor="numOfAdults" className="hotel-color">
-												Adults
+												Người lớn
 											</Form.Label>
 											<FormControl
 												required
@@ -203,12 +203,12 @@ const currentUser = localStorage.getItem("userId")
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Please select at least 1 adult.
+												Vui lòng phải có ít nhất một người lớn
 											</Form.Control.Feedback>
 										</div>
 										<div className="col-6">
 											<Form.Label htmlFor="numOfChildren" className="hotel-color">
-												Children
+												Trẻ nhỏ
 											</Form.Label>
 											<FormControl
 												required
@@ -221,15 +221,15 @@ const currentUser = localStorage.getItem("userId")
 												onChange={handleInputChange}
 											/>
 											<Form.Control.Feedback type="invalid">
-												Select 0 if no children
+												Nhập 0 nếu ko có trẻ
 											</Form.Control.Feedback>
 										</div>
 									</div>
 								</fieldset>
 
 								<div className="fom-group mt-2 mb-2">
-									<button type="submit" className="btn btn-hotel">
-										Continue
+									<button type="submit" className="btn btn-hotel btn-success">
+										Tiếp tục
 									</button>
 								</div>
 							</Form>

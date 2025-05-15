@@ -1,10 +1,13 @@
 import React, { useState } from "react"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link, useLocation } from "react-router-dom"
 import Logout from "../auth/Logout"
 
 
 const NavBar = () => {
 	const [showAccount, setShowAccount] = useState(false)
+	const location = useLocation()
+	console.log(location);
+	
 
 	const handleAccountClick = () => {
 		setShowAccount(!showAccount)
@@ -16,8 +19,8 @@ const NavBar = () => {
 	return (
 		<nav className="navbar navbar-expand-lg bg-body-tertiary px-5 shadow sticky-top">
 			<div className="container-fluid">
-				<Link to={"/"} className="navbar-brand">
-					<span className="hotel-color">lakeSide Hotel</span>
+				<Link to={"/"} className={`navbar-brand ${location.pathname === ""}`}>
+					<span className="hotel-color">Hotel RoyalNest</span>
 				</Link>
 
 				<button
@@ -34,8 +37,8 @@ const NavBar = () => {
 				<div className="collapse navbar-collapse" id="navbarScroll">
 					<ul className="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll">
 						<li className="nav-item">
-							<NavLink className="nav-link" aria-current="page" to={"/browse-all-rooms"}>
-								Browse all rooms
+							<NavLink className={`nav-link ${location.pathname === "/browse-all-rooms"?"active-url":""}`} aria-current="page" to={"/browse-all-rooms"}>
+								Dịch vụ phòng
 							</NavLink>
 						</li>
 
@@ -50,21 +53,21 @@ const NavBar = () => {
 
 					<ul className="d-flex navbar-nav">
 						<li className="nav-item">
-							<NavLink className="nav-link" to={"/find-booking"}>
-								Find my booking
+							<NavLink className={`nav-link ${location.pathname === "/find-booking"?"active-url":""}`} to={"/find-booking"}>
+								Tìm phòng 
 							</NavLink>
 						</li>
 
-						<li className="nav-item dropdown">
+						<li className={`nav-item dropdown`} >
 							<a
-								className={`nav-link dropdown-toggle ${showAccount ? "show" : ""}`}
+								className={`nav-link dropdown-toggle ${showAccount ? "show" : ""} ${location.pathname === "/profile"?"active-url":""}`}
 								href="#"
 								role="button"
 								data-bs-toggle="dropdown"
 								aria-expanded="false"
 								onClick={handleAccountClick}>
 								{" "}
-								Account
+								Tài khoản
 							</a>
 
 							<ul
@@ -75,7 +78,7 @@ const NavBar = () => {
 								) : (
 									<li>
 										<Link className="dropdown-item" to={"/login"}>
-											Login
+											Đăng nhập
 										</Link>
 									</li>
 								)}

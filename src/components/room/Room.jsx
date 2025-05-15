@@ -27,10 +27,10 @@ const Room = () => {
 			})
 	}, [])
 	if (isLoading) {
-		return <div>Loading rooms.....</div>
+		return <div>Đang hiển thị phòng .....</div>
 	}
 	if (error) {
-		return <div className=" text-danger">Error : {error}</div>
+		return <div className=" text-danger">Lỗi : {error}</div>
 	}
 
 	const handlePageChange = (pageNumber) => {

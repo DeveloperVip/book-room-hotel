@@ -58,15 +58,15 @@ const Checkout = () => {
 								<table className="table table-bordered">
 									<tbody>
 										<tr>
-											<th>Room Type:</th>
+											<th>Loại phòng:</th>
 											<td>{roomInfo.roomType}</td>
 										</tr>
 										<tr>
-											<th>Price per night:</th>
+											<th>Giá thành 1 đêm:</th>
 											<td>${roomInfo.roomPrice}</td>
 										</tr>
 										<tr>
-											<th>Room Service:</th>
+											<th>Dịch vụ đi kèm:</th>
 											<td>
 												<ul className="list-unstyled">
 													<li>
@@ -76,19 +76,19 @@ const Checkout = () => {
 														<FaTv /> Netfilx Premium
 													</li>
 													<li>
-														<FaUtensils /> Breakfast
+														<FaUtensils /> Bữa sáng
 													</li>
 													<li>
-														<FaWineGlassAlt /> Mini bar refreshment
+														<FaWineGlassAlt /> Giải khát tại Mini bar
 													</li>
 													<li>
-														<FaCar /> Car Service
+														<FaCar /> Dịch vụ ô tô
 													</li>
 													<li>
-														<FaParking /> Parking Space
+														<FaParking /> Không gian đỗ xe
 													</li>
 													<li>
-														<FaTshirt /> Laundry
+														<FaTshirt /> Dịch vụ giặt 
 													</li>
 												</ul>
 											</td>

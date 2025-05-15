@@ -63,12 +63,12 @@ const RoomSearch = () => {
 
 	return (
 		<>
-			<Container className="shadow mt-n5 mb-5 py-5">
+			<Container className="shadow mt-n5 mb-5 py-5" data-aos="fade-up">
 				<Form onSubmit={handleSearch}>
 					<Row className="justify-content-center">
 						<Col xs={12} md={3}>
 							<Form.Group controlId="checkInDate">
-								<Form.Label>Check-in Date</Form.Label>
+								<Form.Label>Ngày nhận phòng</Form.Label>
 								<Form.Control
 									type="date"
 									name="checkInDate"
@@ -80,7 +80,7 @@ const RoomSearch = () => {
 						</Col>
 						<Col xs={12} md={3}>
 							<Form.Group controlId="checkOutDate">
-								<Form.Label>Check-out Date</Form.Label>
+								<Form.Label>Ngày trả phòng</Form.Label>
 								<Form.Control
 									type="date"
 									name="checkOutDate"
@@ -92,14 +92,14 @@ const RoomSearch = () => {
 						</Col>
 						<Col xs={12} md={3}>
 							<Form.Group controlId="roomType">
-								<Form.Label>Room Type</Form.Label>
-								<div className="d-flex">
+								<Form.Label>Loại phòng</Form.Label>
+								<div className="d-flex gap-2">
 									<RoomTypeSelector
 										handleRoomInputChange={handleInputChange}
 										newRoom={searchQuery}
 									/>
 									<Button variant="secondary" type="submit" className="ml-2">
-										Search
+										Tìm
 									</Button>
 								</div>
 							</Form.Group>
@@ -108,11 +108,11 @@ const RoomSearch = () => {
 				</Form>
 
 				{isLoading ? (
-					<p className="mt-4">Finding availble rooms....</p>
+					<p className="mt-4">Đang tìm kiếm phòng ....</p>
 				) : availableRooms ? (
 					<RoomSearchResults results={availableRooms} onClearSearch={handleClearSearch} />
 				) : (
-					<p className="mt-4">No rooms available for the selected dates and room type.</p>
+					<p className="mt-4">Không có phòng trống cho ngày và loại phòng đã chọn.</p>
 				)}
 				{errorMessage && <p className="text-danger">{errorMessage}</p>}
 			</Container>

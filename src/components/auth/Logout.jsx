@@ -15,14 +15,14 @@ const Logout = () => {
 		<>
 			<li>
 				<Link className="dropdown-item" to={"/profile"}>
-					Profile
+					Tiểu sử
 				</Link>
 			</li>
 			<li>
 				<hr className="dropdown-divider" />
 			</li>
 			<button className="dropdown-item" onClick={handleLogout}>
-				Logout
+				Đăng xuất
 			</button>
 		</>
 	)
